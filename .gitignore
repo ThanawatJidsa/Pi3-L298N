@@ -38,10 +38,46 @@ print("/n")
 
 while(1):
     x = raw_input()
-    if x == 's'
+    if x == 's':
          print("Car is stoping.")
          print("Give Nat key s-stop, f-forward, b-backward, e-exit.")
-
-
-
-
+         GPIO.output(in1,GPIO.LOW)
+         GPIO.output(in2,GPIO.LOW)
+         GPIO.output(in3,GPIO.LOW)
+         GPIO.output(in4,GPIO.LOW)
+         x = 'z'
+    elif x == 'f':
+         print("Car is running of fast forward.")
+         print("Give Nat key s-stop, f-forward, b-backward, e-exit.")
+         GPIO.output(in1,GPIO.HIGH)
+         GPIO.output(in2,GPIO.LOW)
+         GPIO.output(in3,GPIO.HIGH)
+         GPIO.output(in4,GPIO.LOW)
+         p.ChangeDutyCycle(50)
+         q.ChangeDutyCycle(50)
+         temp1 = 1
+         x = 'z'
+    elif x == 'b':
+         print("Car is running of low backward.")
+         print("Give Nat key s-stop, f-forward, b-backward, e-exit.")
+         GPIO.output(in1,GPIO.LOW)
+         GPIO.output(in2,GPIO.HIGH)
+         GPIO.output(in3,GPIO.LOW)
+         GPIO.output(in4,GPIO.HIGH)
+         p.ChangeDutyCycle(40)
+         q.ChangeDutyCycle(40)
+         temp1 = 0
+         x = 'z'
+    elif x == 'e':
+         GPIO.cleanup()
+         print("car does not work.")
+         break
+    else:
+         print("<<<   wrong data   >>>")
+         print("please enter the s, f, b, e.")
+         print("Give Nat key s-stop, f-forward, b-backward, e-exit.")
+         
+    
+    
+    
+     
